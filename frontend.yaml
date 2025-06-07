@@ -1,6 +1,5 @@
 - name: configure frontend component
-  hosts: local
-  connection: local
+  hosts: frontend
   become: yes
   tasks:
   - name: disable default nginx
