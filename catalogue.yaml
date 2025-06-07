@@ -7,7 +7,7 @@
     ansible.buitlin.command: dnf module disable nodejs -y
 
   - name: enable nodejs
-   ansible.builtin.dnf:
+    ansible.builtin.dnf:
      name: nodejs
      state: present
 
