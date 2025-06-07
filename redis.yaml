@@ -1,5 +1,6 @@
 - name: install redis component
-  hosts: redis
+  hosts: local
+  connection: local
   become: yes
   tasks:
   - name: disable redis default module

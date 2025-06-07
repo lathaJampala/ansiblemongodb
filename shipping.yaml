@@ -1,5 +1,6 @@
 - name: configure shipping component
-  hosts: shipping
+  hosts: local
+  connection: local
   become: yes
   tasks:
   - name: install maven and mysql
