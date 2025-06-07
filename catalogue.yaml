@@ -1,6 +1,5 @@
 - name: configure catalogue component
-  hosts: local
-  connection: local
+  hosts: catalogue
   become: yes
   tasks: 
   - name: disable default nodejs
@@ -67,7 +66,7 @@
       state: present
 
   - name: check products loades or not
-    ansible.builtin.command: mongosh --host MONGODB-SERVER-IPADDRESS --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+    ansible.builtin.command: mongosh --host 172.31.29.18 --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_output
 
   - name: print catalogue output
@@ -75,5 +74,5 @@
       msg: "{{ catalogue_output}}"
 
   - name: load products
-    ansible.builtin.shell: mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
+    ansible.builtin.shell: mongosh --host 172.31.29.18 </app/db/master-data.js
     when: catalogue_output.stdout | int < 0
