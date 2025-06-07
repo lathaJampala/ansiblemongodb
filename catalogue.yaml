@@ -1,5 +1,6 @@
 - name: configure catalogue component
-  hosts: catalogue
+  hosts: local
+  connection: local
   become: yes
   tasks: 
   - name: disable default nodejs
